@@ -1,0 +1,31 @@
+form{
+    padding-top:100px;
+    text-align:center;
+    font-size:20px;
+}
+html {
+    background-color:#808080
+}
+
+p {
+    color:red;
+    text-align:center;
+}
+.signupbtn {
+    padding: 5px;
+    border-radius:5px;
+    background-color:#DC143C;
+    padding-right:198.1px;
+    padding-top:10.5px;
+    padding-bottom:10.5px;
+    text-align:center;
+    text-color:#808080;
+}
+
+input {
+    font-size: 15px;
+    padding:10px;
+    padding-right:500px
+    border-radius:20px;
+    margin:5px;
+}

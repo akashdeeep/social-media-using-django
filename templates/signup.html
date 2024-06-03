@@ -1,0 +1,52 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+</head>
+<body>
+<link rel="stylesheet" href="{%static 'style.css' %}">
+<form class="signupForm" id="signup_form" name='SignupForm' method="POST" action="" style="border:0px solid #ccc">
+    {% csrf_token %}
+    <div class="container">
+        <h1>Sign Up</h1>
+        <p> Please enter the details below to create an account.</p>
+        {% for message in messages%}
+        <p>{{message}}</p>
+        {% endfor %}
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <br>
+        <input type="email" placeholder="Enter email" name="email-box" required>
+        <br>
+        <input type="password" placeholder="Enter password" name="password-box" required>
+        <!--        <input type="reset" placeholder="Reset" name="reset">-->
+        <!--        Add remember me feature -->
+        <br>
+
+        <input type="password" placeholder="Re-enter password" name="password_box2" required>
+        <br>
+        <div class="submit-button">
+            <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+<!--        <div class="submit-button">-->
+<!--            <button type="submit" class="signupbtn">Reset</button>-->
+<!--        </div>-->
+        <script>
+            function submitForm(){
+            var submit_form = document.getElementById('signup_form'); // get element by id
+            // var submit_form = document.getElementsByName('SignupForm')[0]; // get elements by name, store first element in variable
+            submit_form.submit();
+            submit_form.reset();
+            // return false;
+            }
+
+        </script>
+        <p>Already have an account? <a href="/signin"> Login </a> </p>
+    </div>
+</form>
+
+
+</body>
+</html>

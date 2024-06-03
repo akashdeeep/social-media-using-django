@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+</head>
+<body>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token%}
+  <p>Upload a Post</p>
+  <input type="file" placeholder="Upload image" name="file_upload">
+  <br>
+  <input type="text" placeholder="Caption" name="caption">
+  <br>
+  <button name="submit-post" type="submit" class="signupbtn">Post</button>
+  <br>
+</form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<header>
+    <form action="/search">
+        <input type="text" name="search" placeholder="Search">
+        <button type="submit">Submit </button>
+    </form>
+</header>
+<h1>Home Page</h1>
+<div style="text-align:right">
+    <a href="/logout"> Logout </a>
+</div>
+<!--<link rel="stylesheet" href="{% static 'style.css' %}">-->
+<br>
+<br>
+
+{% for post in posts %}
+<div style="margin-left:500px;margin-right:400px">
+    <a style="text-align:left" href="#"><strong> @{{post.user}}</strong></a>
+    <br>
+    <a href="{{post.image.url}}"></a>
+    <br>
+    <img width="300px" height="500px" src="{{post.image.url}}">
+    <br>
+    <p style="">{{post.caption}}</p>
+    <a href="/like-post?post_id={{post.id}}">Like</a>
+
+    {% if post.likes_count == 0 %}
+    <p> No likes </p>
+    {% elif post.likes_count == 1 %}
+    <p> Liked by 1 person </p>
+    {% else %}
+    <p style="text-align:left">Liked by {{post.likes_count}} people</p>
+    {% endif %}
+
+    <a style="text-align:left" href="{{post.id}}/comments">Add comment</a>
+    <br>
+    <a href="{{post.image.url}}" download>Download</a>
+    <br>
+    <br>
+    <hr>
+    <br>
+</div>
+{% endfor %}
+</body>
+</html>

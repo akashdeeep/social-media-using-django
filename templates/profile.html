@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<br>
+{{user.username}}
+<br>
+<a href="/follow?user_name={{user.username}}">Follow</a>
+<p> Followers Count : {{profile.followers}}</p>
+<p>Profile Image </p>
+<img src="{{profile.profile_image.url}}">
+<br>
+{% if no_posts == 0 %}
+<p>No post</p>
+{%elif no_posts == 1%}
+<p> 1 post </p>
+{% else %}
+<p>{{no_posts}} posts</p>
+{% endif %}
+<br>
+{% for post in posts %}
+<img width="100px" height="200px" style='margin:30px' src="{{post.image.url}}">
+{% endfor %}
+</body>
+</html>
